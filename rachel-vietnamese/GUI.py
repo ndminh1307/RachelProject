@@ -1,11 +1,11 @@
 import sys
 import os
+
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot, Qt
 
 from subprocess import Popen, PIPE
-
 
 class App(QWidget):
     def __init__(self):

@@ -1,2 +1,6 @@
 import sys
-sys.path.append("/home/ndminh/RachelProject/rachel-vietnamese/intelligence/sensecells/")  
+from pathlib import Path
+
+home = str(Path.home())
+
+sys.path.append(home + "/RachelProject/rachel-vietnamese/intelligence/sensecells/")
