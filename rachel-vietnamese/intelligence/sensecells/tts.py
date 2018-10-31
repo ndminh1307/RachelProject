@@ -7,9 +7,9 @@ import time
 
 def tts(speech_text):
 
-    print("RACHEL: " + speech_text)
+    print("MINH TUỆ: " + speech_text)
     
-    language = 'en'
+    language = 'vi'
     voice = gTTS(text=speech_text, lang=language, slow=False)
     voice.save("temp.mp3")
 

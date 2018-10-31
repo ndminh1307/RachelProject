@@ -6,7 +6,8 @@ from sensecells.tts import tts
 wikipedia.set_lang('vi')
 def define_subject(speech_text):
     words = speech_text.split()
-    words.remove('define')
+    words.remove('định')
+    words.remove('nghĩa')
     cleaned_words = ' '.join(words)
 
     try:
@@ -21,6 +22,6 @@ def define_subject(speech_text):
         wiki_data = wiki_data.replace("'","")
         tts(wiki_data)
     except wikipedia.exceptions.DisambiguationError as e:
-        tts('Can you please be more specific? You may choose something from the following.; {0}'.format(e))
+        tts('Bạn có thể nói rõ ràng hơn không? Hoặc có thể chọn những gợi ý sau:; {0}'.format(e))
         
 

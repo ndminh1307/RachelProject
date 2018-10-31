@@ -32,7 +32,11 @@ def what_can_you_do():
 def thank_you():
     replies = 'You are welcome'
     tts(replies)
-    
+
+def compliment():
+    replies = ['Thank you so much', 'You make me shy. Thank you']
+    tts(random.choice(replies))
+
 def undefined():
     replies = ['I could not understand', 'I dont know what that means!', 'Can you say again? I dont know what you said']
     tts(random.choice(replies))

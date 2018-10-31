@@ -25,19 +25,23 @@ def main():
         audio = r.listen(source, phrase_time_limit=7)
 
     try:
-        speech_text = r.recognize_google(audio).lower().replace("'","")
-        print("YOU SAID: " + speech_text.capitalize())
+        speech_text = r.recognize_google(audio, language='vi-VN').lower().replace("'","")
+        #troll
+        s = 'thương'
+        if not set([s]).issubset(set(speech_text.split())):
+            speech_text.replace('thương', 'khương')
+
+        print("BẠN NÓI: " + speech_text.capitalize())
 
     except sr.UnknownValueError:
-        tts("No voice detected. Can you say again?")
+        tts("Không nhận được giọng nói. Bạn đã nói chưa?")
     
     except sr.RequestError:
-        tts("No request")
+        tts("Không phản hồi")
     
     try:
         brain(speech_text, name, city_name, city_code)
     except UnboundLocalError:
         pass
 
-    
 main()
