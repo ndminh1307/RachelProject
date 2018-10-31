@@ -26,7 +26,7 @@ class App(QWidget):
         converseButton = QPushButton("Converse to Rachel", self)
         converseButton.setToolTip("Converse to Rachel now")
         converseButton.resize(200,50)
-        converseButton.move(200, 10)
+        converseButton.move(300, 10)
         converseButton.clicked.connect(self.converse)
         
         #Label output

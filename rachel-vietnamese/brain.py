@@ -1,6 +1,6 @@
-from intelligence import general_conversations, time, weather, define_subject, sleep, troll
+from intelligence import general_conversations, time, weather, define_subject, sleep, troll, play_music
 
-def brain(speech_text, name, city_name, city_code):
+def brain(speech_text, name, city_name, city_code, music_path):
     def check(keywords):
         words = set(speech_text.split())
         if set(keywords).issubset(words):
@@ -62,5 +62,13 @@ def brain(speech_text, name, city_name, city_code):
     elif check(['tạm', 'biệt']):
         sleep.go_to_sleep()
     
+    #Play some music
+    elif check(['phát', 'nhạc']) or check(['chơi', 'nhạc']):
+        play_music.play_random(music_path)
+    
+    elif check(['dừng', 'nhạc']) or check(['dừng', 'phát']):
+        play_music.stop_playing()
+
+    #UNDEFINED
     else:
         general_conversations.undefined()

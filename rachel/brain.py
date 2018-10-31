@@ -1,6 +1,6 @@
-from intelligence import general_conversations, time, weather, define_subject, sleep
+from intelligence import general_conversations, time, weather, define_subject, sleep, play_music
 
-def brain(speech_text, name, city_name, city_code):
+def brain(speech_text, name, city_name, city_code, music_path):
     def check(keywords):
         words = set(speech_text.split())
         if set(keywords).issubset(words):
@@ -52,6 +52,12 @@ def brain(speech_text, name, city_name, city_code):
     elif check(['sleep']):
         sleep.go_to_sleep()
 
-    
+    #Play random music
+    elif check(['play', 'music']) or check(['music']):
+        play_music.play_random(music_path)
+
+    elif check(['stop', 'playing']) or check(['stop', 'music']):
+        play_music.stop_playing()
+        
     else:
         general_conversations.undefined()

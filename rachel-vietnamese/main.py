@@ -12,8 +12,8 @@ with open("profile.yaml.default", "r") as profile:
 #Personal data
 name = data['name']
 city_name = data['city_name']
-
 city_code = data['city_code']
+music_path = data['music_path']
 
 
 def main():
@@ -26,11 +26,6 @@ def main():
 
     try:
         speech_text = r.recognize_google(audio, language='vi-VN').lower().replace("'","")
-        #troll
-        s = 'thương'
-        if not set([s]).issubset(set(speech_text.split())):
-            speech_text.replace('thương', 'khương')
-
         print("BẠN NÓI: " + speech_text.capitalize())
 
     except sr.UnknownValueError:
@@ -40,7 +35,7 @@ def main():
         tts("Không phản hồi")
     
     try:
-        brain(speech_text, name, city_name, city_code)
+        brain(speech_text, name, city_name, city_code, music_path)
     except UnboundLocalError:
         pass
 

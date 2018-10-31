@@ -12,8 +12,8 @@ with open("profile.yaml.default", "r") as profile:
 #Personal data
 name = data['name']
 city_name = data['city_name']
-
 city_code = data['city_code']
+music_path = data['music_path']
 
 
 def main():
@@ -35,7 +35,7 @@ def main():
         tts("No request")
     
     try:
-        brain(speech_text, name, city_name, city_code)
+        brain(speech_text, name, city_name, city_code, music_path)
     except UnboundLocalError:
         pass
 
